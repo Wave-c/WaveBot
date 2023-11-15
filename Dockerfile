@@ -1,12 +1,12 @@
 FROM maven:latest AS stage1
-WORKDIR /dispatcher
-COPY pom.xml /dispatcher
+WORKDIR /WaveBot
+COPY pom.xml /WaveBot
 RUN mvn dependency:resolve
-COPY . /dispatcher
+COPY . /WaveBot
 RUN mvn clean install
 RUN mvn package -DskipTests
 
 FROM openjdk:17 as final
-COPY --from=stage1 /dispatcher/target/*.jar dispatcher.jar
+COPY --from=stage1 /WaveBot/target/*.jar WaveBot.jar
 EXPOSE 8080
-CMD ["java", "-jar", "dispatcher.jar"]
+CMD ["java", "-jar", "WaveBot.jar"]

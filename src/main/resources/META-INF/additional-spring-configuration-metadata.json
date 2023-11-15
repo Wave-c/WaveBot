@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "com.wave_bot.dispatcher.token",
+    "type": "java.lang.String",
+    "description": "A description for 'com.wave_bot.dispatcher.token'"
+  },
+  {
+    "name": "com.wave_bot.dispatcher.username",
+    "type": "java.lang.String",
+    "description": "A description for 'com.wave_bot.dispatcher.username'"
+  },
+  {
+    "name": "com.wave_bot.dispatcher.admin-chat-id",
+    "type": "java.lang.String",
+    "description": "A description for 'com.wave_bot.dispatcher.admin-chat-id'"
+  }
+]}

@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS languages
+(
+    id    SERIAL PRIMARY KEY,
+    lang NVARCHAR(25) NOT NULL,
+    price NUMBER NOT NULL
+);

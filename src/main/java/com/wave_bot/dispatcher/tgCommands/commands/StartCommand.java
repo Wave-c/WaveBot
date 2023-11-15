@@ -2,7 +2,7 @@ package com.wave_bot.dispatcher.tgCommands.commands;
 
 import com.google.gson.Gson;
 import com.sun.tools.javac.Main;
-import com.wave_bot.dispatcher.Entitys.Language;
+import com.wave_bot.dispatcher.model.Language;
 import com.wave_bot.dispatcher.tgCommands.interfaces.IBotCommand;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;

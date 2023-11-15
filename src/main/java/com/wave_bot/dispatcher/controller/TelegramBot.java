@@ -4,6 +4,7 @@ import com.wave_bot.dispatcher.tgCommands.commands.LoginCommand;
 import com.wave_bot.dispatcher.tgCommands.commands.StartCommand;
 import com.wave_bot.dispatcher.tgCommands.inlineComands.AddLangCommand;
 import com.wave_bot.dispatcher.tgCommands.inlineComands.DeleteLangCommand;
+import com.wave_bot.dispatcher.tgCommands.inlineComands.LangCommand;
 import com.wave_bot.dispatcher.tgCommands.interfaces.IBotCommand;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,7 @@ public class TelegramBot extends TelegramLongPollingBot
     private final IBotCommand LOGIN_COMMAND = new LoginCommand();
     private final IBotCommand ADD_LANG_COMMAND = new AddLangCommand();
     private final IBotCommand DELETE_LANG_COMMAND = new DeleteLangCommand();
+    private final IBotCommand LANG_COMMAND = new LangCommand();
 
     public TelegramBot() throws IOException, URISyntaxException {
         super();
@@ -43,14 +45,24 @@ public class TelegramBot extends TelegramLongPollingBot
         {
             var message = update.getCallbackQuery().getData();
             System.out.println(message);
-            switch(message)
+            try 
             {
-                case "AddLang":
-                    ADD_LANG_COMMAND.sendAnswer(update, this);
-                    break;
-                case "DeleteLang":
-                    DELETE_LANG_COMMAND.sendAnswer(update, this);
-                    break;
+                DELETE_LANG_COMMAND.sendAnswer(update, this);
+                switch(message)
+                {
+                    case "AddLang":
+                        ADD_LANG_COMMAND.sendAnswer(update, this);
+                        break;
+                    case "DeleteLang":
+                        DELETE_LANG_COMMAND.sendAnswer(update, this);
+                        break;
+                    default:
+                        LANG_COMMAND.sendAnswer(update, this);
+                }
+            }
+            catch (IOException | URISyntaxException e) 
+            {
+                e.printStackTrace();
             }
         }
         else if(update.getMessage() != null)
@@ -58,15 +70,21 @@ public class TelegramBot extends TelegramLongPollingBot
             var message = update.getMessage();
             System.out.println(message.getText());
             if (message.isCommand())
-            {
-                switch (message.getText())
+            {   
+                try {
+                    switch (message.getText())
+                    {
+                        case "/start":
+                            START_COMMAND.sendAnswer(update, this);
+                            break;
+                        case "/login":
+                            LOGIN_COMMAND.sendAnswer(update, this);
+                            break;
+                    }
+                } 
+                catch (IOException | URISyntaxException e) 
                 {
-                    case "/start":
-                        START_COMMAND.sendAnswer(update, this);
-                        break;
-                    case "/login":
-                        LOGIN_COMMAND.sendAnswer(update, this);
-                        break;
+                    e.printStackTrace();
                 }
             }
             else

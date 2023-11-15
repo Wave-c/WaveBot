@@ -2,6 +2,7 @@ package com.wave_bot.dispatcher.tgCommands.commands;
 
 import com.google.gson.Gson;
 import com.sun.tools.javac.Main;
+import com.wave_bot.dispatcher.Entitys.Language;
 import com.wave_bot.dispatcher.tgCommands.interfaces.IBotCommand;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -26,13 +27,15 @@ public class StartCommand extends BotCommand implements IBotCommand
         super();
         URL resource = Main.class.getClassLoader().getResource("languages.json");
         File jsonFile = new File(resource.toURI());
-        if(jsonFile.canRead()) {
+        if(jsonFile.canRead()) 
+        {
             BufferedReader br = new BufferedReader(new FileReader(jsonFile));
 
             StringBuilder languagesBuilder = new StringBuilder();
             String temp;
 
-            while ((temp = br.readLine()) != null) {
+            while ((temp = br.readLine()) != null) 
+            {
                 languagesBuilder.append(temp);
             }
 
@@ -44,10 +47,11 @@ public class StartCommand extends BotCommand implements IBotCommand
             List<List<InlineKeyboardButton>> rowsButtons = new ArrayList<>();
             List<InlineKeyboardButton> row = new ArrayList<>();
 
-            for (int i = 0; i < languages.size(); i++) {
+            for (int i = 0; i < languages.size(); i++) 
+            {
                 InlineKeyboardButton button = new InlineKeyboardButton();
-                button.setCallbackData(languages.get(i));
-                button.setText(languages.get(i));
+                button.setCallbackData(languages.get(i).split(" ")[0]);
+                button.setText(languages.get(i).split(" ")[0]);
                 row.add(button);
             }
             rowsButtons.add(row);

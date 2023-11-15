@@ -2,6 +2,7 @@ package com.wave_bot.dispatcher.tgCommands.inlineComands;
 
 import com.google.gson.Gson;
 import com.sun.tools.javac.Main;
+import com.wave_bot.dispatcher.Entitys.Language;
 import com.wave_bot.dispatcher.tgCommands.interfaces.IBotCommand;
 import com.wave_bot.dispatcher.tgCommands.interfaces.IInlineBotCommand;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -38,7 +39,7 @@ public class AddLangCommand extends BotCommand implements IBotCommand, IInlineBo
         EditMessageText editMessage = new EditMessageText();
         editMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
         editMessage.setMessageId(update.getCallbackQuery().getMessage().getMessageId());
-        editMessage.setText("Введите язык");
+        editMessage.setText("Введите язык (<Lang> <Price>)");
         return editMessage;
     }
 

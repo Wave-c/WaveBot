@@ -74,23 +74,23 @@ public class LangCommand extends BotCommand implements IInlineBotCommand
 
         if(update.getCallbackQuery().getData().equals(languages.get(0).split(" ")[0]))
         {
-            editMessage.setText("Курсовая/Дипломная работа по " + languages.get(0).split(" ")[0] + ".\nЦена: " + languages.get(0).split(" ")[1] + "р.\nОбращаться к имполнителю @den_noname");
+            editMessage.setText("Курсовая/Дипломная работа по " + languages.get(0).split(" ")[0] + ".\nЦена: " + languages.get(0).split(" ")[1] + "р.(цена является приблизительной, точную цену уточняйте у исполнителя)\nОбращаться к имполнителю @den_noname");
         }
         else if(update.getCallbackQuery().getData().equals(languages.get(1).split(" ")[0]))
         {
-            editMessage.setText("Курсовая/Дипломная работа по " + languages.get(1).split(" ")[0] + ".\nЦена: " + languages.get(1).split(" ")[1] + "р.\nОбращаться к имполнителю @den_noname");
+            editMessage.setText("Курсовая/Дипломная работа по " + languages.get(1).split(" ")[0] + ".\nЦена: " + languages.get(1).split(" ")[1] + "р.(цена является приблизительной, точную цену уточняйте у исполнителя)\nОбращаться к имполнителю @den_noname");
         }
         else if(update.getCallbackQuery().getData().equals(languages.get(2).split(" ")[0]))
         {
-            editMessage.setText("Курсовая/Дипломная работа по " + languages.get(2).split(" ")[0] + ".\nЦена: " + languages.get(2).split(" ")[1] + "р.\nОбращаться к имполнителю @den_noname");
+            editMessage.setText("Курсовая/Дипломная работа по " + languages.get(2).split(" ")[0] + ".\nЦена: " + languages.get(2).split(" ")[1] + "р.(цена является приблизительной, точную цену уточняйте у исполнителя)\nОбращаться к имполнителю @den_noname");
         }
         else if(update.getCallbackQuery().getData().equals(languages.get(3).split(" ")[0]))
         {
-            editMessage.setText("Курсовая/Дипломная работа по " + languages.get(3).split(" ")[0] + ".\nЦена: " + languages.get(3).split(" ")[1] + "р.\nОбращаться к имполнителю @den_noname");
+            editMessage.setText("Курсовая/Дипломная работа по " + languages.get(3).split(" ")[0] + ".\nЦена: " + languages.get(3).split(" ")[1] + "р.(цена является приблизительной, точную цену уточняйте у исполнителя)\nОбращаться к имполнителю @den_noname");
         }
         else if(update.getCallbackQuery().getData().equals(languages.get(4).split(" ")[0]))
         {
-            editMessage.setText("Курсовая/Дипломная работа по " + languages.get(4).split(" ")[0] + ".\nЦена: " + languages.get(4).split(" ")[1] + "р.\nОбращаться к имполнителю @den_noname");
+            editMessage.setText("Курсовая/Дипломная работа по " + languages.get(4).split(" ")[0] + ".\nЦена: " + languages.get(4).split(" ")[1] + "р.(цена является приблизительной, точную цену уточняйте у исполнителя)\nОбращаться к имполнителю @den_noname");
         }
 
         return editMessage;
